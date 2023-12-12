@@ -76,7 +76,7 @@ char * transformLetterToDigit(char * line) {
   int i = 0;
   int j = 0;
   char res[20] = "";
-  char *test;
+  char *test = "";
 
   while(line[i] != '\0') {
     int j = i + 1;
@@ -87,25 +87,36 @@ char * transformLetterToDigit(char * line) {
       if (number != '0') {
         i = j;
         j = i + 1;
-        printf("res=%s\n", res);
-        strcat(res, &number);
+        test = append(test, number);
       }
       j++;
     }
     i++;
   }
-  return "test";
+  return test;
 }
 
 int main() {    
     int nb1 = lineRead("a1b2c3d4e5f");
     int nb2 = lineRead("treb7uchet");
-    printf("Step 1 - nb1 : %d, nb2 : %d\n", nb1, nb2);
+    printf("Step 1 - nb1 : %d\nStep 1 - nb2 : %d\n", nb1, nb2);
     
-    int l1 = lineRead("two1nine");
-    printf("Step 2 - l1 : %d\n", l1);
-
     char *st1 = transformLetterToDigit("two1nine");
     printf("Step 2 - st1 : %d\n", lineRead(st1));
+    
+    char *st2 = transformLetterToDigit("eightwothree");
+    printf("Step 2 - st2 : %d\n", lineRead(st2));
+    
+    char *st3 = transformLetterToDigit("xtwone3four");
+    printf("Step 2 - st3 : %d\n", lineRead(st3));
+    
+    char *st4 = transformLetterToDigit("4nineeightseven2");
+    printf("Step 2 - st4 : %d\n", lineRead(st4));
+    
+    char *st5 = transformLetterToDigit("zoneight234");
+    printf("Step 2 - st5 : %d\n", lineRead(st5));
+    
+    char *st6 = transformLetterToDigit("7pqrstsixteen");
+    printf("Step 2 - st6 : %d\n", lineRead(st6));
     return 0;
 }
